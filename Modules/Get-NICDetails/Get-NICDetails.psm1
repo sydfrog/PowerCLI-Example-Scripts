@@ -13,7 +13,7 @@
     -
     ===========================================================================
     Tested Against Environment:
-    vSphere Version: ESXi 6.0 U2, ESXi 6.5
+    vSphere Version: ESXi 6.0 U2, ESXi 6.5, ESXi 6.7 U3
     PowerCLI Version: PowerCLI 6.3 R1, PowerCLI 6.5 R1
     PowerShell Version: 4.0, 5.0
     OS Version: Windows 8.1, Server 2008 R2, Server 2012 R2
@@ -73,6 +73,7 @@ Process {
                 }
             ForEach ($nicdetail in $nicdetails){
 		        $NICReport = [PSCustomObject] @{
+					Cluster = $myCluster.name
 				        Host = $myVMhost.Name
 				        vmnic = $nicdetail.Name
 				        LinkStatus = $nicdetail.LinkStatus
